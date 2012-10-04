@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | 小諾的沒技術農場]]></title>
   <link href="http://Kainors.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://Kainors.github.com/"/>
-  <updated>2012-10-04T12:24:27+08:00</updated>
+  <updated>2012-10-04T14:01:35+08:00</updated>
   <id>http://Kainors.github.com/</id>
   <author>
     <name><![CDATA[Kainors]]></name>
@@ -68,21 +68,34 @@ Liquid error: undefined method `Py_IsInitialized’ for RubyPython::Python:Modul
 
 <h3>標題測試&amp;C語言測試</h3>
 
-<p>{% codeblock test001 - test.c lang:c %}
-int main()
-{</p>
-
-<pre><code>int i;
-for(i = 0; i &lt; 10; i++)
-{
-    if(i%2 == 1)
-        printf("*");
-}
-return 0;
-</code></pre>
-
-<p>}
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>test001 - test.c  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'><span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <h3>一般測試</h3>
 
