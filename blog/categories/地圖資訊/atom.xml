@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 地圖資訊 | 小諾的沒技術農場]]></title>
   <link href="http://Kainors.github.com/blog/categories/地圖資訊/atom.xml" rel="self"/>
   <link href="http://Kainors.github.com/"/>
-  <updated>2012-10-04T17:20:30+08:00</updated>
+  <updated>2012-10-04T17:25:28+08:00</updated>
   <id>http://Kainors.github.com/</id>
   <author>
     <name><![CDATA[Kainors]]></name>
@@ -96,6 +96,9 @@ map.getProjectionObject()
 <p>), 5);
 ```
 如此一來就可以看到地圖了!!</p>
+
+<div id="my_map" style="width:300px;height:200px;border: 1px solid #ccc;"></div>
+
 ]]></content>
   </entry>
   
