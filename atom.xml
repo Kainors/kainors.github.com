@@ -4,7 +4,7 @@
   <title><![CDATA[小諾的沒技術農場]]></title>
   <link href="http://Kainors.github.com/atom.xml" rel="self"/>
   <link href="http://Kainors.github.com/"/>
-  <updated>2012-10-04T14:34:32+08:00</updated>
+  <updated>2012-10-04T14:35:52+08:00</updated>
   <id>http://Kainors.github.com/</id>
   <author>
     <name><![CDATA[Kainors]]></name>
@@ -38,58 +38,12 @@
 放到自己網站中，注意這三個要放在同一個資料夾中<br/>
 另外，<code>theme資料夾</code>有一些預設的樣式可以用<br/>
 就順便放在一起吧!!<br/>
-接著就開一個新的html頁面來編輯</p>
-
-<figure class='code'><figcaption><span>Test1 </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!DOCTYPE html>
-</span><span class='line'>&lt;html>
-</span><span class='line'>    &lt;head>
-</span><span class='line'>        &lt;script src="./OpenLayers.js" type="text/javascript">&lt;/script>
-</span><span class='line'>        &lt;style>
-</span><span class='line'>            #map{
-</span><span class='line'>                width:300px;
-</span><span class='line'>                height:200px;
-</span><span class='line'>                border: 1px solid #ccc;"
-</span><span class='line'>            }
-</span><span class='line'>        &lt;/style>
-</span><span class='line'>        &lt;script type="text/javascript">
-</span><span class='line'>            function init(){
-</span><span class='line'>                var map = new OpenLayers.Map("my_map");
-</span><span class='line'>            }
-</span><span class='line'>        &lt;/script>
-</span><span class='line'>    &lt;/head>
-</span><span class='line'>    &lt;body onLoad="init()">
-</span><span class='line'>        &lt;div id ="my_map">&lt;/div>
-</span><span class='line'>    &lt;/body>
-</span><span class='line'>&lt;/html></span></code></pre></td></tr></table></div></figure>
-
-
-<p>非常簡單只要把要當作容器的DIV ID設定給OpenLayers.Map中<br/>
+接著就開一個新的html頁面來編輯<br/>
+Liquid error: No such file or directory - python -c &#8220;import sys; print sys.executable&#8221;
+非常簡單只要把要當作容器的DIV ID設定給OpenLayers.Map中<br/>
 我們就可以有一個Map容器<br/>
 但是只有這樣還是不會有地圖的<br/>
-還要為這個Map容器放入地圖圖層才能使用<br/>
-Liquid error: No such file or directory - python -c &#8220;import sys; print sys.executable&#8221;</p>
+還要為這個Map容器放入地圖圖層才能使用</p>
 ]]></content>
   </entry>
   
