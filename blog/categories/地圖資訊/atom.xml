@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 地圖資訊 | 小諾的沒技術農場]]></title>
   <link href="http://Kainors.github.com/blog/categories/地圖資訊/atom.xml" rel="self"/>
   <link href="http://Kainors.github.com/"/>
-  <updated>2012-10-04T17:31:37+08:00</updated>
+  <updated>2012-10-04T17:35:18+08:00</updated>
   <id>http://Kainors.github.com/</id>
   <author>
     <name><![CDATA[Kainors]]></name>
@@ -107,7 +107,7 @@ map.getProjectionObject()
 
 
 <script type="text/javascript">
-    (function(){
+    $(function(){
         var map = new OpenLayers.Map("my_map");
         var gmap = new OpenLayers.Layer.Google(
             "Google Streets", // the default
