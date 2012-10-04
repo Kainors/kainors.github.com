@@ -211,7 +211,8 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>如此一來就可以看到地圖了!!</p>
+<p>如此一來就可以看到地圖了!!<br/>
+效果如下！</p>
 
 <script src="http://openlayers.org/api/OpenLayers.js"></script>
 
@@ -230,10 +231,10 @@
             {numZoomLevels: 20, visibility: false}
         );
         map.addLayer(gmap); 
-        map.setCenter(new OpenLayers.LonLat(10.2, 48.9).transform(
+        map.setCenter(new OpenLayers.LonLat(121.5, 23.6).transform(
             new OpenLayers.Projection("EPSG:4326"),
             map.getProjectionObject()
-        ), 5);
+        ), 7);
     });
 </script>
 

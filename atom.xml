@@ -4,7 +4,7 @@
   <title><![CDATA[小諾的沒技術農場]]></title>
   <link href="http://Kainors.github.com/atom.xml" rel="self"/>
   <link href="http://Kainors.github.com/"/>
-  <updated>2012-10-04T17:35:18+08:00</updated>
+  <updated>2012-10-04T17:36:45+08:00</updated>
   <id>http://Kainors.github.com/</id>
   <author>
     <name><![CDATA[Kainors]]></name>
@@ -120,7 +120,8 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>如此一來就可以看到地圖了!!</p>
+<p>如此一來就可以看到地圖了!!<br/>
+效果如下！</p>
 
 <script src="http://openlayers.org/api/OpenLayers.js"></script>
 
@@ -139,10 +140,10 @@
             {numZoomLevels: 20, visibility: false}
         );
         map.addLayer(gmap); 
-        map.setCenter(new OpenLayers.LonLat(10.2, 48.9).transform(
+        map.setCenter(new OpenLayers.LonLat(121.5, 23.6).transform(
             new OpenLayers.Projection("EPSG:4326"),
             map.getProjectionObject()
-        ), 5);
+        ), 7);
     });
 </script>
 
