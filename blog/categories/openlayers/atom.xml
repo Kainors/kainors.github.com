@@ -4,7 +4,7 @@
   <title><![CDATA[Category: OpenLayers | 小諾的沒技術農場]]></title>
   <link href="http://Kainors.github.com/blog/categories/openlayers/atom.xml" rel="self"/>
   <link href="http://Kainors.github.com/"/>
-  <updated>2012-10-04T16:45:20+08:00</updated>
+  <updated>2012-10-04T16:56:43+08:00</updated>
   <id>http://Kainors.github.com/</id>
   <author>
     <name><![CDATA[Kainors]]></name>
@@ -92,7 +92,34 @@
 非常簡單只要把要當作容器的DIV ID設定給OpenLayers.Map中<br/>
 我們就可以有一個Map容器<br/>
 但是只有這樣還是不會有地圖的<br/>
-還要為這個Map容器放入地圖圖層才能使用</p>
+還要為這個Map容器放入地圖圖層才能使用<br/>
+在這邊用Google Map來當作範例<br/>
+在此之前要先引用Google Map的API<br/>
+```html test2</p>
+
+<script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
+
+
+<p><code>
+接著在原先的init function中加入  
+</code>js test3
+var gmap = new OpenLayers.Layer.Google(</p>
+
+<pre><code>"Google Streets", // the default
+{numZoomLevels: 20, visibility: false}
+</code></pre>
+
+<p>);
+map.addLayer(gmap);
+map.setCenter(new OpenLayers.LonLat(10.2, 48.9).transform(</p>
+
+<pre><code>new OpenLayers.Projection("EPSG:4326"),
+map.getProjectionObject()
+</code></pre>
+
+<p>), 5);
+```
+如此一來就可以看到地圖了!!</p>
 ]]></content>
   </entry>
   
