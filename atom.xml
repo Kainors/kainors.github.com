@@ -4,7 +4,7 @@
   <title><![CDATA[小諾的沒技術農場]]></title>
   <link href="http://Kainors.github.com/atom.xml" rel="self"/>
   <link href="http://Kainors.github.com/"/>
-  <updated>2012-10-04T17:58:23+08:00</updated>
+  <updated>2012-10-04T17:59:00+08:00</updated>
   <id>http://Kainors.github.com/</id>
   <author>
     <name><![CDATA[Kainors]]></name>
@@ -14,11 +14,27 @@
 
   
   <entry>
-    <title type="html"><![CDATA[ruby_python]]></title>
+    <title type="html"><![CDATA[Octopress程式碼Highlight問題-2]]></title>
     <link href="http://Kainors.github.com/blog/2012/10/04/ruby-python/"/>
     <updated>2012-10-04T17:39:00+08:00</updated>
     <id>http://Kainors.github.com/blog/2012/10/04/ruby-python</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>這是因為手癢<br/>
+把公司的電腦重灌成Windows 8後<br/>
+想說把ruby、python跟git都裝一裝後<br/>
+應該就沒什麼問題了吧!!</p>
+
+<!--more-->
+
+
+<p>結果只要用程式碼區塊需要用到Highlight語法時<br/>
+就給我蹦出<code>SyntaxError</code>的訊息<br/>
+上Google一看原來是Python版本的問題<br/>
+Octopress用的是Python2.X版，不過我再重灌時沒有注意<br/>
+想說就直接裝最新的Python3.X版<br/>
+於是就將Python移掉再重新安裝<br/>
+結果再generate時，反而蹦出更多error<br/>
+再搞了好久還是搞不定，一氣之下就把Ruby跟Python刪的一乾二淨<br/>
+然後再重新裝起，一切又好了  ψ(｀∇´)ψ</p>
 ]]></content>
   </entry>
   
