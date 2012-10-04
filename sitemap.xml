@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>http://Kainors.github.com/blog/2012/09/19/first-archive/</loc>
+        <lastmod>2012-09-27T11:04:57+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://Kainors.github.com/blog/2012/09/19/setup-octopress/</loc>
+        <lastmod>2012-09-27T11:04:57+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://Kainors.github.com/blog/2012/09/26/octopress-to-dropbox/</loc>
+        <lastmod>2012-09-27T11:04:57+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://Kainors.github.com/blog/2012/09/27/code-test/</loc>
+        <lastmod>2012-09-28T08:51:31+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://Kainors.github.com/blog/2012/09/27/code-heightlight/</loc>
+        <lastmod>2012-09-27T15:49:13+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://Kainors.github.com/blog/2012/10/04/first-openlayers/</loc>
+        <lastmod>2012-10-04T12:23:38+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://Kainors.github.com/blog/archives/</loc>
+        <lastmod>2012-10-04T12:23:38+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://Kainors.github.com/</loc>
+        <lastmod>2012-10-04T12:23:38+08:00</lastmod>
+    </url>
+</urlset>
