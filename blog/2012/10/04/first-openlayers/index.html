@@ -153,27 +153,27 @@
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
 <span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
-</span><span class='line'>    <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
-</span><span class='line'>        <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;./OpenLayers.js&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</span><span class='line'>        <span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
-</span><span class='line'>            <span class="err">#</span><span class="nx">map</span><span class="p">{</span>
-</span><span class='line'>                <span class="nx">width</span><span class="o">:</span><span class="mi">300</span><span class="nx">px</span><span class="p">;</span>
-</span><span class='line'>                <span class="nx">height</span><span class="o">:</span><span class="mi">200</span><span class="nx">px</span><span class="p">;</span>
-</span><span class='line'>                <span class="nx">border</span><span class="o">:</span> <span class="mi">1</span><span class="nx">px</span> <span class="nx">solid</span> <span class="err">#</span><span class="nx">ccc</span><span class="p">;</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="s2">            }</span>
-</span><span class='line'><span class="s2">        &lt;/style&gt;</span>
-</span><span class='line'><span class="s2">        &lt;script type=&quot;</span><span class="nx">text</span><span class="o">/</span><span class="nx">javascript</span><span class="s2">&quot;&gt;</span>
-</span><span class='line'><span class="s2">            function init(){</span>
-</span><span class='line'><span class="s2">                var map = new OpenLayers.Map(&quot;</span><span class="nx">my_map</span><span class="s2">&quot;);</span>
-</span><span class='line'><span class="s2">            }</span>
-</span><span class='line'><span class="s2">        &lt;/script&gt;</span>
-</span><span class='line'><span class="s2">    &lt;/head&gt;</span>
-</span><span class='line'><span class="s2">    &lt;body onLoad=&quot;</span><span class="nx">init</span><span class="p">()</span><span class="s2">&quot;&gt;</span>
-</span><span class='line'><span class="s2">        &lt;div id =&quot;</span><span class="nx">my_map</span><span class="err">&quot;</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span>
-</span><span class='line'>    <span class="o">&lt;</span><span class="err">/body&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/html&gt;</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;head&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;./OpenLayers.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;style&gt;</span>
+</span><span class='line'>            <span class="nf">#map</span><span class="p">{</span>
+</span><span class='line'>                <span class="k">width</span><span class="o">:</span><span class="m">300px</span><span class="p">;</span>
+</span><span class='line'>                <span class="k">height</span><span class="o">:</span><span class="m">200px</span><span class="p">;</span>
+</span><span class='line'>                <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#ccc</span><span class="p">;</span><span class="err">&quot;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="nt">&lt;/style&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>            <span class="kd">function</span> <span class="nx">init</span><span class="p">(){</span>
+</span><span class='line'>                <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="s2">&quot;my_map&quot;</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="nt">&lt;/script&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;body</span> <span class="na">onLoad=</span><span class="s">&quot;init()&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;div</span> <span class="na">id =</span><span class="s">&quot;my_map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
