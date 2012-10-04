@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 地圖資訊 | 小諾的沒技術農場]]></title>
   <link href="http://Kainors.github.com/blog/categories/地圖資訊/atom.xml" rel="self"/>
   <link href="http://Kainors.github.com/"/>
-  <updated>2012-10-04T14:01:35+08:00</updated>
+  <updated>2012-10-04T14:02:24+08:00</updated>
   <id>http://Kainors.github.com/</id>
   <author>
     <name><![CDATA[Kainors]]></name>
@@ -38,7 +38,33 @@
 放到自己網站中，注意這三個要放在同一個資料夾中<br/>
 另外，<code>theme資料夾</code>有一些預設的樣式可以用<br/>
 就順便放在一起吧!!<br/>
-接著就開一個新的html頁面來編輯</p>
+接著就開一個新的html頁面來編輯<br/>
+```
+&lt;!DOCTYPE html>
+<html>
+<head></p>
+
+<script src="./opScripts/OpenLayers.js" type="text/javascript"></script>
+
+
+
+
+<script type="text/javascript">
+    function init(){
+        var map = new OpenLayers.Map("map");
+    }
+</script>
+
+
+<p></head>
+<body onLoad="init()"></p>
+
+<div id ="map" ></div>
+
+
+<p></body>
+</html>
+```</p>
 ]]></content>
   </entry>
   

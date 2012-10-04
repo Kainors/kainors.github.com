@@ -130,6 +130,50 @@
 另外，<code>theme資料夾</code>有一些預設的樣式可以用<br/>
 就順便放在一起吧!!<br/>
 接著就開一個新的html頁面來編輯</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!DOCTYPE html&gt;
+</span><span class='line'>&lt;html&gt;
+</span><span class='line'>&lt;head&gt;
+</span><span class='line'>&lt;script src="./opScripts/OpenLayers.js" type="text/javascript"&gt;&lt;/script&gt;
+</span><span class='line'>&lt;style&gt;
+</span><span class='line'>#map{
+</span><span class='line'>  width:300px;
+</span><span class='line'>  height:200px;
+</span><span class='line'>  border: 1px solid #ccc;"
+</span><span class='line'>}
+</span><span class='line'>&lt;/style&gt;
+</span><span class='line'>&lt;script type="text/javascript"&gt;
+</span><span class='line'>  function init(){
+</span><span class='line'>      var map = new OpenLayers.Map("map");
+</span><span class='line'>  }
+</span><span class='line'>&lt;/script&gt;
+</span><span class='line'>&lt;/head&gt;
+</span><span class='line'>&lt;body onLoad="init()"&gt;
+</span><span class='line'>&lt;div id ="map" &gt;&lt;/div&gt;
+</span><span class='line'>&lt;/body&gt;
+</span><span class='line'>&lt;/html&gt;</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
