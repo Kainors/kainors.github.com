@@ -4,7 +4,7 @@
   <title><![CDATA[小諾的沒技術農場]]></title>
   <link href="http://Kainors.github.com/atom.xml" rel="self"/>
   <link href="http://Kainors.github.com/"/>
-  <updated>2012-10-18T17:17:16+08:00</updated>
+  <updated>2012-10-18T17:45:53+08:00</updated>
   <id>http://Kainors.github.com/</id>
   <author>
     <name><![CDATA[Kainors]]></name>
@@ -269,8 +269,7 @@ Liquid error: undefined method `Py_IsInitialized’ for RubyPython::Python:Modul
 
 <p>This is a <code>code</code> test.</p>
 
-<p><img src="http://210.241.67.146/axis-cgi/mjpg/video.cgi?camera=1" alt="test01" />
-<img src="http://220.133.100.145/play/live.php?camera=7&amp;fps=&amp;L=c3ad777fe8d0078faa2a198d3f10e817" alt="test02" /></p>
+<p><img src="http://210.241.67.146/axis-cgi/mjpg/video.cgi?camera=1" alt="test01" /></p>
 ]]></content>
   </entry>
   
