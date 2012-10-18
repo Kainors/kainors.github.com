@@ -4,7 +4,7 @@
   <title><![CDATA[小諾的沒技術農場]]></title>
   <link href="http://Kainors.github.com/atom.xml" rel="self"/>
   <link href="http://Kainors.github.com/"/>
-  <updated>2012-10-04T17:59:00+08:00</updated>
+  <updated>2012-10-18T17:17:16+08:00</updated>
   <id>http://Kainors.github.com/</id>
   <author>
     <name><![CDATA[Kainors]]></name>
@@ -59,10 +59,8 @@ Octopress用的是Python2.X版，不過我再重灌時沒有注意<br/>
 
 <p>廢話不多說<br/>
 要建立OpenLayers的地圖<br/>
-首先先將下載來的檔案中<code>OpenLayers.js</code>、<code>img資料夾</code>及<code>lib資料夾</code><br/>
+首先先將下載來的檔案中<code>OpenLayers.js</code>、<code>img資料夾</code>及<code>theme資料夾</code><br/>
 放到自己網站中，注意這三個要放在同一個資料夾中<br/>
-另外，<code>theme資料夾</code>有一些預設的樣式可以用<br/>
-就順便放在一起吧!!<br/>
 接著就開一個新的html頁面來編輯</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -165,10 +163,9 @@ Octopress用的是Python2.X版，不過我再重灌時沒有注意<br/>
             {numZoomLevels: 20, visibility: false}
         );
         map.addLayer(gmap); 
-        map.setCenter(new OpenLayers.LonLat(121.5, 23.6).transform(
-            new OpenLayers.Projection("EPSG:4326"),
-            map.getProjectionObject()
-        ), 7);
+        if(!map.getCenter()){
+            map.zoomToMaxExtent(); 
+        }
     });
 </script>
 
@@ -271,6 +268,9 @@ Liquid error: undefined method `Py_IsInitialized’ for RubyPython::Python:Modul
 <h3>文內程式碼測試</h3>
 
 <p>This is a <code>code</code> test.</p>
+
+<p><img src="http://210.241.67.146/axis-cgi/mjpg/video.cgi?camera=1" alt="test01" />
+<img src="http://220.133.100.145/play/live.php?camera=7&amp;fps=&amp;L=c3ad777fe8d0078faa2a198d3f10e817" alt="test02" /></p>
 ]]></content>
   </entry>
   

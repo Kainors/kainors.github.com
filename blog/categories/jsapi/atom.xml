@@ -4,7 +4,7 @@
   <title><![CDATA[Category: JSAPI | 小諾的沒技術農場]]></title>
   <link href="http://Kainors.github.com/blog/categories/jsapi/atom.xml" rel="self"/>
   <link href="http://Kainors.github.com/"/>
-  <updated>2012-10-04T17:59:00+08:00</updated>
+  <updated>2012-10-18T17:17:16+08:00</updated>
   <id>http://Kainors.github.com/</id>
   <author>
     <name><![CDATA[Kainors]]></name>
@@ -34,10 +34,8 @@
 
 <p>廢話不多說<br/>
 要建立OpenLayers的地圖<br/>
-首先先將下載來的檔案中<code>OpenLayers.js</code>、<code>img資料夾</code>及<code>lib資料夾</code><br/>
+首先先將下載來的檔案中<code>OpenLayers.js</code>、<code>img資料夾</code>及<code>theme資料夾</code><br/>
 放到自己網站中，注意這三個要放在同一個資料夾中<br/>
-另外，<code>theme資料夾</code>有一些預設的樣式可以用<br/>
-就順便放在一起吧!!<br/>
 接著就開一個新的html頁面來編輯<br/>
 ```html
 &lt;!DOCTYPE html>
@@ -115,10 +113,9 @@ map.getProjectionObject()
             {numZoomLevels: 20, visibility: false}
         );
         map.addLayer(gmap); 
-        map.setCenter(new OpenLayers.LonLat(121.5, 23.6).transform(
-            new OpenLayers.Projection("EPSG:4326"),
-            map.getProjectionObject()
-        ), 7);
+        if(!map.getCenter()){
+            map.zoomToMaxExtent(); 
+        }
     });
 </script>
 
