@@ -4,7 +4,7 @@
   <title><![CDATA[小諾的沒技術農場]]></title>
   <link href="http://Kainors.github.com/atom.xml" rel="self"/>
   <link href="http://Kainors.github.com/"/>
-  <updated>2012-10-18T17:45:53+08:00</updated>
+  <updated>2012-11-12T16:07:41+08:00</updated>
   <id>http://Kainors.github.com/</id>
   <author>
     <name><![CDATA[Kainors]]></name>
@@ -12,6 +12,98 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[使用XMLHttpRequest執行AJAX跨網域存取]]></title>
+    <link href="http://Kainors.github.com/blog/2012/11/12/ajax-cross-domain/"/>
+    <updated>2012-11-12T14:15:00+08:00</updated>
+    <id>http://Kainors.github.com/blog/2012/11/12/ajax-cross-domain</id>
+    <content type="html"><![CDATA[<p>最近開發的東西，開始嘗試使用Web App的方式來製作<br/>
+當然會用到許多Ajax的Request來傳遞資料<br/>
+而後臺的掌控權是在另一位同事的手上<br/>
+於是在測試時，要調用後台的資料便出現了Cross Domain的問題</p>
+
+<!--more-->
+
+
+<p>因為javascript本身的限制(許多broswer端的
+雖然這個問題可以自己寫個proxy的站台<br/>
+將資料處理好後，再傳送到前端頁面<br/>
+不過未來的產品上，雖然有http的service<br/>
+但不見得有完整的web server<br/>
+所以寫proxy的想法就先放一邊<br/>
+就在邊找解決辦法時<br/>
+看到原來Ajax的XMLHttpRequest本身就提供cross domain的解決方法<br/>
+不過server side也得提供相對應的response header
+就是<code>Access-Control-Allow-Origin</code><br/>
+下面就以PHP作為範例</p>
+
+<figure class='code'><figcaption><span>cross.php</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'>    <span class="nx">header</span><span class="p">(</span><span class="s2">&quot;Access-Control-Allow-Origin: http://kainors.github.com&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="s2">&quot;Cross Domain OK!!&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>而<code>Access-Control-Allow-Origin</code>這個header後面就是限制可存取的網域<br/>
+如果希望可以讓所有網站都可以存取可以使用&#8221;*&#8221;</p>
+
+<p>接著測試的頁面中主要的JavaScript如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">createCrossReuqest</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span> <span class="nx">url</span><span class="p">){</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="s2">&quot;withCredentials&quot;</span> <span class="k">in</span> <span class="nx">xhr</span><span class="p">){</span>
+</span><span class='line'>        <span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">XDomainRequest</span> <span class="o">!=</span> <span class="s2">&quot;undefined&quot;</span><span class="p">){</span>
+</span><span class='line'>        <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XDomainRequest</span><span class="p">();</span>
+</span><span class='line'>        <span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span> <span class="nx">url</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">else</span><span class="p">{</span>
+</span><span class='line'>        <span class="nx">xhr</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">createCrossRequest</span><span class="p">(</span><span class="s2">&quot;get&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.testsite/cross.php&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="nx">request</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">request</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="nx">request</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>雖然這個方法，還是無法直接讓javascript執行跨網域的存取<br/>
+但只要在server side增加<code>Access-Control-Allow-Origin</code>這個header就能解決問題<br/>
+在團隊開發中，至少還是個不錯的方法</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress程式碼Highlight問題-2]]></title>
