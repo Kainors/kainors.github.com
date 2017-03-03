@@ -1,550 +1,556 @@
-
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<html>
 <head>
   <meta charset="utf-8">
+  
   <title>小諾的沒技術農場</title>
-  <meta name="author" content="Kainors">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="心血來潮會更新一下的 Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小諾的沒技術農場">
+<meta property="og:url" content="http://Kainors.github.com/index.html">
+<meta property="og:site_name" content="小諾的沒技術農場">
+<meta property="og:description" content="心血來潮會更新一下的 Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小諾的沒技術農場">
+<meta name="twitter:description" content="心血來潮會更新一下的 Blog">
   
-  <meta name="description" content="最近開發的東西，開始嘗試使用Web App的方式來製作
-當然會用到許多Ajax的Request來傳遞資料
-而後臺的掌控權是在另一位同事的手上
-於是在測試時，要調用後台的資料便出現了Cross Domain的問題 ">
   
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="/favicon.png">
   
-  <link rel="canonical" href="http://Kainors.github.com/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="小諾的沒技術農場" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
   
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-34931132-1']);
-    _gaq.push(['_trackPageview']);
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
+ga('create', 'UA-34931132-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
 
 
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">小諾的沒技術農場</a></h1>
-  
-    <h2>歡迎有空來吃草</h2>
-  
-</hgroup>
-
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小諾的沒技術農場</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">歡迎有空來吃草</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://Kainors.github.com"></form>
+      </div>
+    </div>
+  </div>
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+      <div class="outer">
+        <section id="main">
   
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:Kainors.github.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+    <article id="post-ruby-python" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/10/04/ruby-python/" class="article-date">
+  <time datetime="2012-10-04T09:39:00.000Z" itemprop="datePublished">2012-10-04</time>
+</a>
     
-      <h1 class="entry-title"><a href="/blog/2012/11/12/ajax-cross-domain/">使用XMLHttpRequest執行AJAX跨網域存取</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-12T14:15:00+08:00" pubdate data-updated="true">Nov 12<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/11/12/ajax-cross-domain/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近開發的東西，開始嘗試使用Web App的方式來製作<br/>
-當然會用到許多Ajax的Request來傳遞資料<br/>
-而後臺的掌控權是在另一位同事的手上<br/>
-於是在測試時，要調用後台的資料便出現了Cross Domain的問題</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/11/12/ajax-cross-domain/">繼續看下去 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/04/ruby-python/">Octopress程式碼Highlight問題-2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-04T17:39:00+08:00" pubdate data-updated="true">Oct 4<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/10/04/ruby-python/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這是因為手癢<br/>
-把公司的電腦重灌成Windows 8後<br/>
-想說把ruby、python跟git都裝一裝後<br/>
-應該就沒什麼問題了吧!!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/10/04/ruby-python/">繼續看下去 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/04/first-openlayers/">初探OpenLayers</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-04T11:50:00+08:00" pubdate data-updated="true">Oct 4<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/10/04/first-openlayers/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>因為工作上，老闆提到這玩意兒<br/>
-先拿來稍微做一下研究，並做點紀錄</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/10/04/first-openlayers/">繼續看下去 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/27/code-heightlight/">在Windows下讓Octopress可以顯示漂亮的程式碼區塊</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-27T14:13:00+08:00" pubdate data-updated="true">Sep 27<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/09/27/code-heightlight/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>雖然Markdown語法中，可以標註程式碼區塊<br/>
-不過Octopress還可以讓程式碼更漂亮的顯示<br/>
-這些在官方的文件都有說明!!<br/>
-但在Windows編譯的環境下，卻遇到了些問題!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/09/27/code-heightlight/">繼續看下去 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/27/code-test/">程式碼區塊測試</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-27T10:01:00+08:00" pubdate data-updated="true">Sep 27<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/09/27/code-test/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"></div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/09/27/code-test/">繼續看下去 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/26/octopress-to-dropbox/">將Octopress source備份至Dropbox</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-26T09:53:00+08:00" pubdate data-updated="true">Sep 26<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/09/26/octopress-to-dropbox/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在好不容易建立了自己的部落格<br/>
-並且也建立了文章讓部落格慢慢的豐富起來<br/>
-雖然在Github上有完整的文章內容<br/>
-但也都是編譯過而發佈出去的內容<br/>
-而原始編輯的檔案還是在本機端<br/>
-如果電腦掛掉，辛苦建立的心血就這樣沒了</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/09/26/octopress-to-dropbox/">繼續看下去 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/19/setup-octopress/">安裝Octopress on Github</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-19T15:04:00+08:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/09/19/setup-octopress/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在壞朋友的推坑下，以及Visual Studio持續無法使用<br  />
-不小心就搞出這個站!!<br />
-接著因為Visual Studio SP1在搞鬼!!<br />
-乾脆順便把Octopress的安裝過程整理一下好了!!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/09/19/setup-octopress/">繼續看下去 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/19/first-archive/">值得紀念的第一篇??</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-19T10:15:00+08:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/09/19/first-archive/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>恭喜自己開版</h2>
-
-<br />
-
-
-<p>總算在github上成立一個自己的Blog.</p>
-
-<br />
-
-
-<p>接下來繼續放著長草吧!!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Learn/">Learn</a>►<a class="article-category-link" href="/categories/Learn/Octopress/">Octopress</a>
   </div>
-</div>
-<aside class="sidebar">
-  
-    ﻿<section>
-  <h1>標籤雲</h1>
-    <span id="tag-cloud"><a href='/blog/categories/ajax' style='font-size: 112.0%'>ajax(1)</a> <a href='/blog/categories/github' style='font-size: 112.0%'>github(1)</a> <a href='/blog/categories/jsapi' style='font-size: 112.0%'>JSAPI(1)</a> <a href='/blog/categories/octopress' style='font-size: 160.0%'>Octopress(5)</a> <a href='/blog/categories/openlayers' style='font-size: 112.0%'>OpenLayers(1)</a> <a href='/blog/categories/ruby' style='font-size: 112.0%'>Ruby(1)</a> <a href='/blog/categories/地圖資訊' style='font-size: 112.0%'>地圖資訊(1)</a> <a href='/blog/categories/雜草叢生' style='font-size: 112.0%'>雜草叢生(1)</a> </span>
-</section>
-<section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2012/11/12/ajax-cross-domain/">使用XMLHttpRequest執行AJAX跨網域存取</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/04/ruby-python/">Octopress程式碼Highlight問題-2</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/04/first-openlayers/">初探OpenLayers</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/09/27/code-heightlight/">在Windows下讓Octopress可以顯示漂亮的程式碼區塊</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/09/27/code-test/">程式碼區塊測試</a>
-      </li>
-    
-  </ul>
-</section>
-<section>
-  <div id="recentcomments" class="dsq-widget">
-	<h2 class="dsq-widget-title">最新回覆</h2>
-	<script type="text/javascript" src="http://kainors.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=1&avatar_size=32&excerpt_length=200"></script>
+
   </div>
-  <a href="http://disqus.com/">Powered by Disqus</a>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/10/04/ruby-python/">Octopress程式碼Highlight問題-2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>這是因為手癢<br>把公司的電腦重灌成Windows 8後<br>想說把ruby、python跟git都裝一裝後<br>應該就沒什麼問題了吧!!<br>
+        
+          <p class="article-more-link">
+            <a href="/2012/10/04/ruby-python/#more">繼續看下去 ⏩</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://Kainors.github.com/2012/10/04/ruby-python/" data-id="ciztq5w80000a6ghnw568p4ex" class="article-share-link">Share</a>
+      
+        <a href="http://Kainors.github.com/2012/10/04/ruby-python/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Octopress/">Octopress</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby/">Ruby</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-first-openlayers" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/10/04/first-openlayers/" class="article-date">
+  <time datetime="2012-10-04T03:50:00.000Z" itemprop="datePublished">2012-10-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Learn/">Learn</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/10/04/first-openlayers/">初探OpenLayers</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因為工作上，老闆提到這玩意兒<br>先拿來稍微做一下研究，並做點紀錄<br>
+        
+          <p class="article-more-link">
+            <a href="/2012/10/04/first-openlayers/#more">繼續看下去 ⏩</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://Kainors.github.com/2012/10/04/first-openlayers/" data-id="ciztq5w89000c6ghntj7vpeup" class="article-share-link">Share</a>
+      
+        <a href="http://Kainors.github.com/2012/10/04/first-openlayers/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Map/">Map</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenLayers/">OpenLayers</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-code-heightlight" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/09/27/code-heightlight/" class="article-date">
+  <time datetime="2012-09-27T06:13:00.000Z" itemprop="datePublished">2012-09-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Learn/">Learn</a>►<a class="article-category-link" href="/categories/Learn/Octopress/">Octopress</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/09/27/code-heightlight/">在Windows下讓Octopress可以顯示漂亮的程式碼區塊</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>雖然Markdown語法中，可以標註程式碼區塊<br>不過Octopress還可以讓程式碼更漂亮的顯示<br>這些在官方的文件都有說明!!<br>但在Windows編譯的環境下，卻遇到了些問題!<br>
+        
+          <p class="article-more-link">
+            <a href="/2012/09/27/code-heightlight/#more">繼續看下去 ⏩</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://Kainors.github.com/2012/09/27/code-heightlight/" data-id="ciztq5w7s00056ghnkmyosq9m" class="article-share-link">Share</a>
+      
+        <a href="http://Kainors.github.com/2012/09/27/code-heightlight/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Octopress/">Octopress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-code-test" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/09/27/code-test/" class="article-date">
+  <time datetime="2012-09-27T02:01:00.000Z" itemprop="datePublished">2012-09-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Learn/">Learn</a>►<a class="article-category-link" href="/categories/Learn/Octopress/">Octopress</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/09/27/code-test/">程式碼區塊測試</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<p>###標題測試\&amp;C語言測試<br><figure class="highlight c"><figcaption><span>test001 - test.c</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(i%<span class="number">2</span> == <span class="number">1</span>)</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"*"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>###一般測試<br><figure class="highlight c"><figcaption><span>test01</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i;</div><div class="line">test++;</div></pre></td></tr></table></figure></p>
+<hr>
+<p>###文內程式碼測試</p>
+<p>This is a <code>code</code> test.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://Kainors.github.com/2012/09/27/code-test/" data-id="ciztq5w7w00066ghndeypbgxj" class="article-share-link">Share</a>
+      
+        <a href="http://Kainors.github.com/2012/09/27/code-test/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Octopress/">Octopress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-octopress-to-dropbox" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/09/26/octopress-to-dropbox/" class="article-date">
+  <time datetime="2012-09-26T01:53:00.000Z" itemprop="datePublished">2012-09-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Learn/">Learn</a>►<a class="article-category-link" href="/categories/Learn/Octopress/">Octopress</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/09/26/octopress-to-dropbox/">將Octopress source備份至Dropbox</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在好不容易建立了自己的部落格<br>並且也建立了文章讓部落格慢慢的豐富起來<br>雖然在Github上有完整的文章內容<br>但也都是編譯過而發佈出去的內容<br>而原始編輯的檔案還是在本機端<br>如果電腦掛掉，辛苦建立的心血就這樣沒了<br>
+        
+          <p class="article-more-link">
+            <a href="/2012/09/26/octopress-to-dropbox/#more">繼續看下去 ⏩</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://Kainors.github.com/2012/09/26/octopress-to-dropbox/" data-id="ciztq5w7q00046ghno4fhndzl" class="article-share-link">Share</a>
+      
+        <a href="http://Kainors.github.com/2012/09/26/octopress-to-dropbox/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Octopress/">Octopress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-setup-octopress" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/09/19/setup-octopress/" class="article-date">
+  <time datetime="2012-09-19T07:04:00.000Z" itemprop="datePublished">2012-09-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Learn/">Learn</a>►<a class="article-category-link" href="/categories/Learn/Octopress/">Octopress</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/09/19/setup-octopress/">安裝Octopress on github</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在壞朋友的推坑下，以及Visual Studio持續無法使用<br  /><br>不小心就搞出這個站!!<br /><br>接著因為Visual Studio SP1在搞鬼!!<br /><br>乾脆順便把Octopress的安裝過程整理一下好了!!<br>
+        
+          <p class="article-more-link">
+            <a href="/2012/09/19/setup-octopress/#more">繼續看下去 ⏩</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://Kainors.github.com/2012/09/19/setup-octopress/" data-id="ciztq5w7d00006ghnd4i4xyiz" class="article-share-link">Share</a>
+      
+        <a href="http://Kainors.github.com/2012/09/19/setup-octopress/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Octopress/">Octopress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-first-archive" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/09/19/first-archive/" class="article-date">
+  <time datetime="2012-09-19T02:15:00.000Z" itemprop="datePublished">2012-09-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/雜記/">雜記</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/09/19/first-archive/">值得紀念的第一篇??</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##恭喜自己開版<br><br><br>總算在github上成立一個自己的Blog.<br><br><br>接下來繼續放著長草吧!!!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://Kainors.github.com/2012/09/19/first-archive/" data-id="ciztq5w7i00016ghnsj04u9nu" class="article-share-link">Share</a>
+      
+        <a href="http://Kainors.github.com/2012/09/19/first-archive/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/雜草叢生/">雜草叢生</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
 </section>
-<section>
-  <h1>壞朋友們</h1>
-  <ul id="links">
-	<li><a href="http://ichi1234567.github.com/">小助助的精神實驗室</a></li>
-	<li><a href="http://yy-programer.blogspot.tw/">Yy&#8217;s Program</a></li>
-	<li><a href="http://yy-blogger.blogspot.tw/">Yy&#8217;s BLOG</a></li>
-  </ul>
-</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Learn/">Learn</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Learn/Octopress/">Octopress</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/雜記/">雜記</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
 
 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 15px;">GitHub</a> <a href="/tags/Map/" style="font-size: 10px;">Map</a> <a href="/tags/Octopress/" style="font-size: 20px;">Octopress</a> <a href="/tags/OpenLayers/" style="font-size: 10px;">OpenLayers</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/雜草叢生/" style="font-size: 10px;">雜草叢生</a>
+    </div>
+  </div>
 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2012/10/04/ruby-python/">Octopress程式碼Highlight問題-2</a>
+          </li>
+        
+          <li>
+            <a href="/2012/10/04/first-openlayers/">初探OpenLayers</a>
+          </li>
+        
+          <li>
+            <a href="/2012/09/27/code-heightlight/">在Windows下讓Octopress可以顯示漂亮的程式碼區塊</a>
+          </li>
+        
+          <li>
+            <a href="/2012/09/27/code-test/">程式碼區塊測試</a>
+          </li>
+        
+          <li>
+            <a href="/2012/09/26/octopress-to-dropbox/">將Octopress source備份至Dropbox</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近回覆</h3>
+    <div class="widget">
+      <script type="text/javascript" src="http://kainors.disqus.com/recent_comments_widget.js?num_items=10&hide_avatars=1&avatar_size=32&excerpt_length=100&hide_mods=0"></script>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">壞朋友們</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="//ichi1234567.github.com/" target="_blank">小助助的精神實驗室</a>
+          </li>
+        
+          <li>
+            <a href="//yy-programer.blogspot.tw/" target="_blank">Yy&#39;s Program</a>
+          </li>
+        
+          <li>
+            <a href="//yy-blogger.blogspot.tw/" target="_blank">Yy&#39;s BLOG</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
   
 </aside>
-
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      &copy; 2017 Kainors
     </div>
   </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Kainors -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
 </footer>
+    </div>
+    <nav id="mobile-nav">
   
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    <div id="totop">
+  <a title="totop"><img src="/css/images/scrollup.png"/></a>
+</div>
 
-<script type="text/javascript">
-      var disqus_shortname = 'kainors';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+<script>
+  var disqus_shortname = 'kainors';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
 </script>
 
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
+<script src="/js/script.js"></script>
 
-
-
-
-
+  </div>
 </body>
 </html>
