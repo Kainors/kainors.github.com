@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Octopress程式碼Highlight問題-2 | 小諾的沒技術農場</title>
+  <title>使用XMLHttpRequest執行AJAX跨網域存取 | 小諾的沒技術農場</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="這是因為手癢把公司的電腦重灌成Windows 8後想說把ruby、python跟git都裝一裝後應該就沒什麼問題了吧!!">
+  <meta name="description" content="最近開發的東西，開始嘗試使用Web App的方式來製作當然會用到許多Ajax的Request來傳遞資料而後臺的掌控權是在另一位同事的手上於是在測試時，要調用後台的資料便出現了Cross Domain的問題">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Octopress程式碼Highlight問題-2">
-<meta property="og:url" content="http://Kainors.github.com/blog/2012/10/04/ruby-python/index.html">
+<meta property="og:title" content="使用XMLHttpRequest執行AJAX跨網域存取">
+<meta property="og:url" content="http://Kainors.github.com/blog/2012/11/12/ajax-cross-domain/index.html">
 <meta property="og:site_name" content="小諾的沒技術農場">
-<meta property="og:description" content="這是因為手癢把公司的電腦重灌成Windows 8後想說把ruby、python跟git都裝一裝後應該就沒什麼問題了吧!!">
-<meta property="og:updated_time" content="2017-03-03T03:57:56.259Z">
+<meta property="og:description" content="最近開發的東西，開始嘗試使用Web App的方式來製作當然會用到許多Ajax的Request來傳遞資料而後臺的掌控權是在另一位同事的手上於是在測試時，要調用後台的資料便出現了Cross Domain的問題">
+<meta property="og:updated_time" content="2012-11-12T08:04:25.835Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Octopress程式碼Highlight問題-2">
-<meta name="twitter:description" content="這是因為手癢把公司的電腦重灌成Windows 8後想說把ruby、python跟git都裝一裝後應該就沒什麼問題了吧!!">
+<meta name="twitter:title" content="使用XMLHttpRequest執行AJAX跨網域存取">
+<meta name="twitter:description" content="最近開發的東西，開始嘗試使用Web App的方式來製作當然會用到許多Ajax的Request來傳遞資料而後臺的掌控權是在另一位同事的手上於是在測試時，要調用後台的資料便出現了Cross Domain的問題">
   
   
     <link rel="icon" href="/favicon.png">
@@ -76,14 +76,14 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-ruby-python" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ajax-cross-domain" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2012/10/04/ruby-python/" class="article-date">
-  <time datetime="2012-10-04T09:39:00.000Z" itemprop="datePublished">2012-10-04</time>
+    <a href="/blog/2012/11/12/ajax-cross-domain/" class="article-date">
+  <time datetime="2012-11-12T06:15:00.000Z" itemprop="datePublished">2012-11-12</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/Learn/">Learn</a>►<a class="article-category-link" href="/blog/categories/Learn/Octopress/">Octopress</a>
+    <a class="article-category-link" href="/blog/categories/ajax/">ajax</a>
   </div>
 
   </div>
@@ -94,7 +94,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      Octopress程式碼Highlight問題-2
+      使用XMLHttpRequest執行AJAX跨網域存取
     </h1>
   
 
@@ -102,37 +102,29 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>這是因為手癢<br>把公司的電腦重灌成Windows 8後<br>想說把ruby、python跟git都裝一裝後<br>應該就沒什麼問題了吧!!<br><a id="more"></a><br>結果只要用程式碼區塊需要用到Highlight語法時<br>就給我蹦出<code>SyntaxError</code>的訊息<br>上Google一看原來是Python版本的問題<br>Octopress用的是Python2.X版，不過我再重灌時沒有注意<br>想說就直接裝最新的Python3.X版<br>於是就將Python移掉再重新安裝<br>結果再generate時，反而蹦出更多error<br>再搞了好久還是搞不定，一氣之下就把Ruby跟Python刪的一乾二淨<br>然後再重新裝起，一切又好了  ψ(｀∇´)ψ</p>
+        <p>最近開發的東西，開始嘗試使用Web App的方式來製作<br>當然會用到許多Ajax的Request來傳遞資料<br>而後臺的掌控權是在另一位同事的手上<br>於是在測試時，要調用後台的資料便出現了Cross Domain的問題<br><a id="more"></a><br>因為javascript本身的限制(許多broswer端的<br>雖然這個問題可以自己寫個proxy的站台<br>將資料處理好後，再傳送到前端頁面<br>不過未來的產品上，雖然有http的service<br>但不見得有完整的web server<br>所以寫proxy的想法就先放一邊<br>就在邊找解決辦法時<br>看到原來Ajax的XMLHttpRequest本身就提供cross domain的解決方法<br>不過server side也得提供相對應的response header<br>就是<code>Access-Control-Allow-Origin</code><br>下面就以PHP作為範例<br><figure class="highlight php"><figcaption><span>cross.php</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">    header(<span class="string">"Access-Control-Allow-Origin: http://kainors.github.com"</span>);</div><div class="line">    <span class="keyword">echo</span> <span class="string">"Cross Domain OK!!"</span>;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p>而<code>Access-Control-Allow-Origin</code>這個header後面就是限制可存取的網域<br>如果希望可以讓所有網站都可以存取可以使用”*”</p>
+<p>接著測試的頁面中主要的JavaScript如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCrossReuqest</span>(<span class="params">method, url</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    <span class="keyword">if</span>(<span class="string">"withCredentials"</span> <span class="keyword">in</span> xhr)&#123;</div><div class="line">        xhr.open(method, url, <span class="literal">true</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> XDomainRequest != <span class="string">"undefined"</span>)&#123;</div><div class="line">        xhr = <span class="keyword">new</span> XDomainRequest();</div><div class="line">        xhr.open(method, url);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        xhr = <span class="literal">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> request = createCrossRequest(<span class="string">"get"</span>, <span class="string">"http://www.testsite/cross.php"</span>);</div><div class="line"><span class="keyword">if</span>(request)&#123;</div><div class="line">    request.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        alert(request.responseText);</div><div class="line">    &#125;;</div><div class="line">    request.send();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>雖然這個方法，還是無法直接讓javascript執行跨網域的存取<br>但只要在server side增加<code>Access-Control-Allow-Origin</code>這個header就能解決問題<br>在團隊開發中，至少還是個不錯的方法  </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Kainors.github.com/blog/blog/2012/10/04/ruby-python/" data-id="cizwv1j1p000foshnj4l4cabw" class="article-share-link">Share</a>
+      <a data-url="http://Kainors.github.com/blog/blog/2012/11/12/ajax-cross-domain/" data-id="cizwv1j1b0006oshn0tary4jm" class="article-share-link">Share</a>
       
-        <a href="http://Kainors.github.com/blog/blog/2012/10/04/ruby-python/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="http://Kainors.github.com/blog/blog/2012/11/12/ajax-cross-domain/#disqus_thread" class="article-comment-link">留言</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Octopress/">Octopress</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Ruby/">Ruby</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/blog/2012/11/12/ajax-cross-domain/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          使用XMLHttpRequest執行AJAX跨網域存取
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2012/10/04/first-openlayers/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2012/10/04/ruby-python/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">初探OpenLayers</div>
+      <div class="article-nav-title">Octopress程式碼Highlight問題-2</div>
     </a>
   
 </nav>
@@ -260,7 +252,7 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'kainors';
   
-  var disqus_url = 'http://Kainors.github.com/blog/blog/2012/10/04/ruby-python/';
+  var disqus_url = 'http://Kainors.github.com/blog/blog/2012/11/12/ajax-cross-domain/';
   
   (function(){
     var dsq = document.createElement('script');

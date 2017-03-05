@@ -8,7 +8,7 @@
   <meta name="description" content="因為工作上，老闆提到這玩意兒先拿來稍微做一下研究，並做點紀錄">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初探OpenLayers">
-<meta property="og:url" content="http://Kainors.github.com/2012/10/04/first-openlayers/index.html">
+<meta property="og:url" content="http://Kainors.github.com/blog/2012/10/04/first-openlayers/index.html">
 <meta property="og:site_name" content="小諾的沒技術農場">
 <meta property="og:description" content="因為工作上，老闆提到這玩意兒先拿來稍微做一下研究，並做點紀錄">
 <meta property="og:updated_time" content="2017-03-03T03:57:51.000Z">
@@ -22,7 +22,7 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/blog/css/style.css">
   
 <!-- Google Analytics -->
 <script type="text/javascript">
@@ -48,11 +48,11 @@ ga('send', 'pageview');
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">小諾的沒技術農場</a>
+        <a href="/blog/" id="logo">小諾的沒技術農場</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">歡迎有空來吃草</a>
+          <a href="/blog/" id="subtitle">歡迎有空來吃草</a>
         </h2>
       
     </div>
@@ -60,9 +60,9 @@ ga('send', 'pageview');
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/">Home</a>
+          <a class="main-nav-link" href="/blog/">Home</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
         
       </nav>
       <nav id="sub-nav">
@@ -70,7 +70,7 @@ ga('send', 'pageview');
         <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://Kainors.github.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://Kainors.github.com/blog"></form>
       </div>
     </div>
   </div>
@@ -78,12 +78,12 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main"><article id="post-first-openlayers" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2012/10/04/first-openlayers/" class="article-date">
+    <a href="/blog/2012/10/04/first-openlayers/" class="article-date">
   <time datetime="2012-10-04T03:50:00.000Z" itemprop="datePublished">2012-10-04</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Learn/">Learn</a>
+    <a class="article-category-link" href="/blog/categories/Learn/">Learn</a>
   </div>
 
   </div>
@@ -103,7 +103,7 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>因為工作上，老闆提到這玩意兒<br>先拿來稍微做一下研究，並做點紀錄<br><a id="more"></a><br>OpenLayers的網站<a href="http://openlayers.org/" target="_blank" rel="external">在此</a><br>只要將整個API下載下來就可以使用了<br>而裡面的example資料夾中也有許多範例程式碼<br>因為一開始自己直接寫，發現不管怎樣都不會出現地圖<br>於是乾脆參考範例，才發現放地圖的那個DIV容器還需要設定寬高才會顯示<br>白白的浪費不少時間測試<br>下次就記得有新的API要玩就直接看範例來玩吧XD  </p>
-<p>廢話不多說<br>要建立OpenLayers的地圖<br>首先先將下載來的檔案中<code>OpenLayers.js</code>、<code>img資料夾</code>及<code>lib資料夾</code><br>放到自己網站中，注意這三個要放在同一個資料夾中<br>另外，<code>theme資料夾</code>有一些預設的樣式可以用<br>就順便放在一起吧!!<br>接著就開一個新的html頁面來編輯<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./OpenLayers.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">            #map&#123;</div><div class="line">                width:300px;</div><div class="line">                height:200px;</div><div class="line">                border: 1px solid #ccc;"</div><div class="line">            &#125;</div><div class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">            function init()&#123;</div><div class="line">                var map = new OpenLayers.Map("my_map");</div><div class="line">            &#125;</div><div class="line">        <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span> <span class="attr">onLoad</span>=<span class="string">"init()"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span> =<span class="string">"my_map"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>廢話不多說<br>要建立OpenLayers的地圖<br>首先先將下載來的檔案中<code>OpenLayers.js</code>、<code>img資料夾</code>及<code>lib資料夾</code><br>放到自己網站中，注意這三個要放在同一個資料夾中<br>另外，<code>theme資料夾</code>有一些預設的樣式可以用<br>就順便放在一起吧!!<br>接著就開一個新的html頁面來編輯<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./OpenLayers.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">            #map&#123;</div><div class="line">                width:300px;</div><div class="line">                height:200px;</div><div class="line">                border: 1px solid #ccc;"</div><div class="line">            &#125;</div><div class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">var</span> map = <span class="keyword">new</span> OpenLayers.Map(<span class="string">"my_map"</span>);</div><div class="line">            &#125;</div><div class="line">        <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span> <span class="attr">onLoad</span>=<span class="string">"init()"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span> =<span class="string">"my_map"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>非常簡單只要把要當作容器的DIV ID設定給OpenLayers.Map中<br>我們就可以有一個Map容器<br>但是只有這樣還是不會有地圖的<br>還要為這個Map容器放入地圖圖層才能使用<br>在這邊用Google Map來當作範例<br>在此之前要先引用Google Map的API<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://maps.google.com/maps/api/js?v=3&amp;amp;sensor=false"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>接著在原先的<code>init()</code>function中加入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gmap = <span class="keyword">new</span> OpenLayers.Layer.Google(</div><div class="line">    <span class="string">"Google Streets"</span>, <span class="comment">// the default</span></div><div class="line">    &#123;<span class="attr">numZoomLevels</span>: <span class="number">20</span>, <span class="attr">visibility</span>: <span class="literal">false</span>&#125;</div><div class="line">);</div><div class="line">map.addLayer(gmap);	</div><div class="line">map.setCenter(<span class="keyword">new</span> OpenLayers.LonLat(<span class="number">10.2</span>, <span class="number">48.9</span>).transform(</div><div class="line">    <span class="keyword">new</span> OpenLayers.Projection(<span class="string">"EPSG:4326"</span>),</div><div class="line">    map.getProjectionObject()</div><div class="line">), <span class="number">5</span>);</div></pre></td></tr></table></figure></p>
 <p>如此一來就可以看到地圖了!!<br>效果如下！</p>
@@ -115,12 +115,12 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Kainors.github.com/2012/10/04/first-openlayers/" data-id="ciztq5w89000c6ghntj7vpeup" class="article-share-link">Share</a>
+      <a data-url="http://Kainors.github.com/blog/blog/2012/10/04/first-openlayers/" data-id="cizwv1j1f000aoshn71yogxgj" class="article-share-link">Share</a>
       
-        <a href="http://Kainors.github.com/2012/10/04/first-openlayers/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="http://Kainors.github.com/blog/blog/2012/10/04/first-openlayers/#disqus_thread" class="article-comment-link">留言</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Map/">Map</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenLayers/">OpenLayers</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Map/">Map</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/OpenLayers/">OpenLayers</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -128,7 +128,7 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
   
-    <a href="/2012/10/04/ruby-python/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2012/10/04/ruby-python/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -138,7 +138,7 @@ ga('send', 'pageview');
     </a>
   
   
-    <a href="/2012/09/27/code-heightlight/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2012/09/27/code-heightlight/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">在Windows下讓Octopress可以顯示漂亮的程式碼區塊</div>
     </a>
@@ -162,7 +162,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">分類</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Learn/">Learn</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Learn/Octopress/">Octopress</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/雜記/">雜記</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Learn/">Learn</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Learn/Octopress/">Octopress</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ajax/">ajax</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/雜記/">雜記</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -172,7 +172,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 15px;">GitHub</a> <a href="/tags/Map/" style="font-size: 10px;">Map</a> <a href="/tags/Octopress/" style="font-size: 20px;">Octopress</a> <a href="/tags/OpenLayers/" style="font-size: 10px;">OpenLayers</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/雜草叢生/" style="font-size: 10px;">雜草叢生</a>
+      <a href="/blog/tags/Git/" style="font-size: 10px;">Git</a> <a href="/blog/tags/GitHub/" style="font-size: 15px;">GitHub</a> <a href="/blog/tags/Map/" style="font-size: 10px;">Map</a> <a href="/blog/tags/Octopress/" style="font-size: 20px;">Octopress</a> <a href="/blog/tags/OpenLayers/" style="font-size: 10px;">OpenLayers</a> <a href="/blog/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/blog/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/blog/tags/雜草叢生/" style="font-size: 10px;">雜草叢生</a>
     </div>
   </div>
 
@@ -184,23 +184,23 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2012/10/04/ruby-python/">Octopress程式碼Highlight問題-2</a>
+            <a href="/blog/2012/11/12/ajax-cross-domain/">使用XMLHttpRequest執行AJAX跨網域存取</a>
           </li>
         
           <li>
-            <a href="/2012/10/04/first-openlayers/">初探OpenLayers</a>
+            <a href="/blog/2012/10/04/ruby-python/">Octopress程式碼Highlight問題-2</a>
           </li>
         
           <li>
-            <a href="/2012/09/27/code-heightlight/">在Windows下讓Octopress可以顯示漂亮的程式碼區塊</a>
+            <a href="/blog/2012/10/04/first-openlayers/">初探OpenLayers</a>
           </li>
         
           <li>
-            <a href="/2012/09/27/code-test/">程式碼區塊測試</a>
+            <a href="/blog/2012/09/27/code-heightlight/">在Windows下讓Octopress可以顯示漂亮的程式碼區塊</a>
           </li>
         
           <li>
-            <a href="/2012/09/26/octopress-to-dropbox/">將Octopress source備份至Dropbox</a>
+            <a href="/blog/2012/09/27/code-test/">程式碼區塊測試</a>
           </li>
         
       </ul>
@@ -256,19 +256,19 @@ ga('send', 'pageview');
     </div>
     <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/blog/" class="mobile-nav-link">Home</a>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
   
 </nav>
     <div id="totop">
-  <a title="totop"><img src="/css/images/scrollup.png"/></a>
+  <a title="totop"><img src="/blog/css/images/scrollup.png"/></a>
 </div>
 
 <script>
   var disqus_shortname = 'kainors';
   
-  var disqus_url = 'http://Kainors.github.com/2012/10/04/first-openlayers/';
+  var disqus_url = 'http://Kainors.github.com/blog/blog/2012/10/04/first-openlayers/';
   
   (function(){
     var dsq = document.createElement('script');
@@ -283,11 +283,11 @@ ga('send', 'pageview');
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script src="/blog/js/script.js"></script>
 
   </div>
 </body>
