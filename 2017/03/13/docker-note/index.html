@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Octopress程式碼Highlight問題-2 | 小諾的沒技術農場</title>
+  <title>Docker 學習筆記 | 小諾的沒技術農場</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="這是因為手癢把公司的電腦重灌成Windows 8後想說把ruby、python跟git都裝一裝後應該就沒什麼問題了吧!!">
+  <meta name="description" content="最近因為新開發一個案子，測試使用 Docker 來進行佈屬程式中間也遇到了些問題，所以希望可以把查詢到的資料先做個筆記，以備不時之需">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Octopress程式碼Highlight問題-2">
-<meta property="og:url" content="http://Kainors.github.com/2012/10/04/ruby-python/index.html">
+<meta property="og:title" content="Docker 學習筆記">
+<meta property="og:url" content="http://Kainors.github.com/2017/03/13/docker-note/index.html">
 <meta property="og:site_name" content="小諾的沒技術農場">
-<meta property="og:description" content="這是因為手癢把公司的電腦重灌成Windows 8後想說把ruby、python跟git都裝一裝後應該就沒什麼問題了吧!!">
-<meta property="og:updated_time" content="2017-03-03T03:57:56.259Z">
+<meta property="og:description" content="最近因為新開發一個案子，測試使用 Docker 來進行佈屬程式中間也遇到了些問題，所以希望可以把查詢到的資料先做個筆記，以備不時之需">
+<meta property="og:updated_time" content="2017-03-13T17:26:29.382Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Octopress程式碼Highlight問題-2">
-<meta name="twitter:description" content="這是因為手癢把公司的電腦重灌成Windows 8後想說把ruby、python跟git都裝一裝後應該就沒什麼問題了吧!!">
+<meta name="twitter:title" content="Docker 學習筆記">
+<meta name="twitter:description" content="最近因為新開發一個案子，測試使用 Docker 來進行佈屬程式中間也遇到了些問題，所以希望可以把查詢到的資料先做個筆記，以備不時之需">
   
   
     <link rel="icon" href="/favicon.png">
@@ -76,14 +76,14 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-ruby-python" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-docker-note" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2012/10/04/ruby-python/" class="article-date">
-  <time datetime="2012-10-04T09:39:00.000Z" itemprop="datePublished">2012-10-04</time>
+    <a href="/2017/03/13/docker-note/" class="article-date">
+  <time datetime="2017-03-13T14:53:23.000Z" itemprop="datePublished">2017-03-13</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Learn/">Learn</a>►<a class="article-category-link" href="/categories/Learn/Octopress/">Octopress</a>
+    <a class="article-category-link" href="/categories/Learn/">Learn</a>►<a class="article-category-link" href="/categories/Learn/Docker/">Docker</a>
   </div>
 
   </div>
@@ -94,7 +94,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      Octopress程式碼Highlight問題-2
+      Docker 學習筆記
     </h1>
   
 
@@ -102,17 +102,37 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>這是因為手癢<br>把公司的電腦重灌成Windows 8後<br>想說把ruby、python跟git都裝一裝後<br>應該就沒什麼問題了吧!!<br><a id="more"></a><br>結果只要用程式碼區塊需要用到Highlight語法時<br>就給我蹦出<code>SyntaxError</code>的訊息<br>上Google一看原來是Python版本的問題<br>Octopress用的是Python2.X版，不過我再重灌時沒有注意<br>想說就直接裝最新的Python3.X版<br>於是就將Python移掉再重新安裝<br>結果再generate時，反而蹦出更多error<br>再搞了好久還是搞不定，一氣之下就把Ruby跟Python刪的一乾二淨<br>然後再重新裝起，一切又好了  ψ(｀∇´)ψ</p>
+        <p>最近因為新開發一個案子，測試使用 Docker 來進行佈屬程式<br>中間也遇到了些問題，所以希望可以把查詢到的資料先做個筆記，以備不時之需<br><a id="more"></a></p>
+<h1 id="基本觀念"><a href="#基本觀念" class="headerlink" title="基本觀念"></a>基本觀念</h1><h2 id="Docker-Image"><a href="#Docker-Image" class="headerlink" title="Docker Image"></a>Docker Image</h2><ol>
+<li>包含了完整的基礎 root 檔案系統(以Linux來說)</li>
+<li>作為系統樣版，供 Container 運行</li>
+</ol>
+<h2 id="Docker-Container"><a href="#Docker-Container" class="headerlink" title="Docker Container"></a>Docker Container</h2><ol>
+<li>Image 對比 Container，就像是程式中的<code>Class</code>與<code>Instance</code></li>
+<li>Container 實際上就像是系統中的一個 Process，因此不同於 VM，<br>在 Container 的環境中，必須要有一個 main process 正在執行，<br>而當這個 main process 結束後，這個 Container 也會隨之關閉</li>
+<li>同第2點，許多人可能把 Container 當作 VM 的概念，<br>於是在建立 Container 後，執行一個背景執行程式(Service)，但是 Container 很快就會關閉了，<br>這是因為 Container 並沒有一個 main process 正在執行，<br>所以使用 Container 時，必須使用前景運行的方式來執行所想要的服務</li>
+</ol>
+<h1 id="Docker-for-Windows-與-Windows-Container"><a href="#Docker-for-Windows-與-Windows-Container" class="headerlink" title="Docker for Windows 與 Windows Container"></a>Docker for Windows 與 Windows Container</h1><ol>
+<li>Container 技術最早出現在 Linux 上，因此 Windows 想要使用就只能透過 Linux VM</li>
+<li>最早要在 Windows 上使用 Docker，需要安裝 Docker Toolbox<br>主要是透過 Virtual Box 執行 Linux VM 來操作 Docker<br>但是既然 Windows 有 Hyper-V，可以運用 Hyper-V 的 VM，效能上應該比 Virtual Box 來的好</li>
+<li>於是在 Microsoft 與 Docker 的配合下 Docker for Windows 出現了(應該是吧!)<br>使用 Hyper-V 建立的 Apline Linux + Busybox，以及原生的管理介面</li>
+<li>但是畢竟還是只能執行 Linux 的 Container，也就是基礎上還是使用 Linux 的系統，<br>於是 Microsoft 也打造自己的 Container 技術， 並且擁抱 Docker 的管理指令，<br>這樣就不用額外學習新的指令就可以使用 Windows Container，<br>當然在 Windows Container 中就可以執行在 Windows 的程式(ex. IIS、MQSQL…)</li>
+</ol>
+<h1 id="指令筆記"><a href="#指令筆記" class="headerlink" title="指令筆記"></a>指令筆記</h1><ul>
+<li>清除沒有使用的 volumes <code>docker volume rm $(docker volume ls -q --filter dangling=true)</code></li>
+<li>清除無效的 images <code>docker rmi $(docker images -f &quot;dangling=true&quot; -q)</code></li>
+</ul>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><p><a href="https://www.gitbook.com/book/yeasy/docker_practice/details" target="_blank" rel="external">(GitBook)Docker — 从入门到实践</a><br><a href="https://www.gitbook.com/book/peihsinsu/docker-note-book/details" target="_blank" rel="external">(GitBook)Docker學習筆記</a><br><a href="https://docs.docker.com/engine/reference/commandline/cli/" target="_blank" rel="external">Docker CLI Reference</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Kainors.github.com/2012/10/04/ruby-python/" data-id="cj08dqv8o000458hnpt0cawy1" class="article-share-link">Share</a>
+      <a data-url="http://Kainors.github.com/2017/03/13/docker-note/" data-id="cj08dqv9d000g58hnbso9htlj" class="article-share-link">Share</a>
       
-        <a href="http://Kainors.github.com/2012/10/04/ruby-python/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="http://Kainors.github.com/2017/03/13/docker-note/#disqus_thread" class="article-comment-link">留言</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Octopress/">Octopress</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby/">Ruby</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
 
     </footer>
   </div>
@@ -120,19 +140,10 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
   
-    <a href="/2012/11/12/ajax-cross-domain/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          使用XMLHttpRequest執行AJAX跨網域存取
-        
-      </div>
-    </a>
   
-  
-    <a href="/2012/10/04/first-openlayers/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/06/octopress-to-hexo/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">初探OpenLayers</div>
+      <div class="article-nav-title">轉換~~~</div>
     </a>
   
 </nav>
@@ -260,7 +271,7 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'kainors';
   
-  var disqus_url = 'http://Kainors.github.com/2012/10/04/ruby-python/';
+  var disqus_url = 'http://Kainors.github.com/2017/03/13/docker-note/';
   
   (function(){
     var dsq = document.createElement('script');
