@@ -3,30 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>程式碼區塊測試 | 小諾的沒技術農場</title>
+  <title>使用 Postman 進行 API 測試 | 小諾的沒技術農場</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###標題測試\&amp;amp;C語言測試test001 - test.c12345678910int main()&amp;#123;	int i;	for(i = 0; i &amp;lt; 10; i++)	&amp;#123;		if(i%2 == 1)			printf(&quot;*&quot;);	&amp;#125;	return 0;&amp;#125;
-###一般測試test0112int i;test++;
-
-###文內程式碼測試
-Thi">
+  <meta name="description" content="最近本部門在帶領新人進行訓練時，由於其中一項作業是開發 Web API 程式，於是在進入到簡單的前端開發前，會使用 Postman 當作測試 API 功能是否正常的工具，但是工具用的不對，誤認為是開發的程式錯誤，豈不是很浪費時間。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="程式碼區塊測試">
-<meta property="og:url" content="http://Kainors.github.com/2012/09/27/code-test/index.html">
+<meta property="og:title" content="使用 Postman 進行 API 測試">
+<meta property="og:url" content="http://Kainors.github.com/2017/03/19/api-testing-with-postman/index.html">
 <meta property="og:site_name" content="小諾的沒技術農場">
-<meta property="og:description" content="###標題測試\&amp;amp;C語言測試test001 - test.c12345678910int main()&amp;#123;	int i;	for(i = 0; i &amp;lt; 10; i++)	&amp;#123;		if(i%2 == 1)			printf(&quot;*&quot;);	&amp;#125;	return 0;&amp;#125;
-###一般測試test0112int i;test++;
-
-###文內程式碼測試
-Thi">
-<meta property="og:updated_time" content="2017-03-03T03:57:58.741Z">
+<meta property="og:description" content="最近本部門在帶領新人進行訓練時，由於其中一項作業是開發 Web API 程式，於是在進入到簡單的前端開發前，會使用 Postman 當作測試 API 功能是否正常的工具，但是工具用的不對，誤認為是開發的程式錯誤，豈不是很浪費時間。">
+<meta property="og:image" content="http://Kainors.github.com/images/old-postman.jpg">
+<meta property="og:image" content="http://Kainors.github.com/images/new-postman.jpg">
+<meta property="og:image" content="http://Kainors.github.com/images/postman-get.jpg">
+<meta property="og:image" content="http://Kainors.github.com/images/postman-post-1.jpg">
+<meta property="og:updated_time" content="2017-03-18T17:52:13.124Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="程式碼區塊測試">
-<meta name="twitter:description" content="###標題測試\&amp;amp;C語言測試test001 - test.c12345678910int main()&amp;#123;	int i;	for(i = 0; i &amp;lt; 10; i++)	&amp;#123;		if(i%2 == 1)			printf(&quot;*&quot;);	&amp;#125;	return 0;&amp;#125;
-###一般測試test0112int i;test++;
-
-###文內程式碼測試
-Thi">
+<meta name="twitter:title" content="使用 Postman 進行 API 測試">
+<meta name="twitter:description" content="最近本部門在帶領新人進行訓練時，由於其中一項作業是開發 Web API 程式，於是在進入到簡單的前端開發前，會使用 Postman 當作測試 API 功能是否正常的工具，但是工具用的不對，誤認為是開發的程式錯誤，豈不是很浪費時間。">
+<meta name="twitter:image" content="http://Kainors.github.com/images/old-postman.jpg">
   
   
     <link rel="icon" href="/favicon.png">
@@ -88,16 +81,12 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-code-test" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-api-testing-with-postman" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2012/09/27/code-test/" class="article-date">
-  <time datetime="2012-09-27T02:01:00.000Z" itemprop="datePublished">2012-09-27</time>
+    <a href="/2017/03/19/api-testing-with-postman/" class="article-date">
+  <time datetime="2017-03-18T16:24:17.000Z" itemprop="datePublished">2017-03-19</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Learn/">Learn</a>►<a class="article-category-link" href="/categories/Learn/Octopress/">Octopress</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -106,7 +95,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      程式碼區塊測試
+      使用 Postman 進行 API 測試
     </h1>
   
 
@@ -114,22 +103,22 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<p>###標題測試\&amp;C語言測試<br><figure class="highlight c"><figcaption><span>test001 - test.c</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(i%<span class="number">2</span> == <span class="number">1</span>)</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"*"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>###一般測試<br><figure class="highlight c"><figcaption><span>test01</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i;</div><div class="line">test++;</div></pre></td></tr></table></figure></p>
-<hr>
-<p>###文內程式碼測試</p>
-<p>This is a <code>code</code> test.</p>
+        <p>最近本部門在帶領新人進行訓練時，由於其中一項作業是開發 Web API 程式，<br>於是在進入到簡單的前端開發前，會使用 Postman 當作測試 API 功能是否正常的工具，<br>但是工具用的不對，誤認為是開發的程式錯誤，豈不是很浪費時間。<br><a id="more"></a></p>
+<p>過去 Postman 做為 Chrome 的頁籤外掛, 整個介面比較單純,<br>除了左側的歷史紀錄, 主要頁面就是輸入 API 網址及選擇 HTTP method,<br>常用的選項都可以很明顯的出現在畫面上不太會發生操作錯誤的問題。<br><img src="/images/old-postman.jpg" alt="舊版 Postman"></p>
+<p>不過也許是 Google 打算停止頁籤外掛上的支援,<br>於是 Postman 也不知在何時已經改版成現在橘色背景的火箭人了(我的猜測啦),<br>除了支援 Chrome 外掛的安裝，也可以做為獨立的桌面程式進行安裝。<br><img src="/images/new-postman.jpg" alt="新版 Postman"></p>
+<p>進入到新版 Postman 程式可以發現多了不少的功能,<br>不過這些新功能我倒是還沒研究過, 改天有些心得再來發表XD<br>雖然新版的畫面對於開發人員使用上有滿多方便的地方,<br>但有些小細節對於新手來說, 在沒有注意的情況下就會發生操作錯誤的情形,<br>本篇文章先說明 Web API 常用的 GET 及 POST method 說明。</p>
+<h2 id="HTTP-GET"><a href="#HTTP-GET" class="headerlink" title="HTTP GET"></a>HTTP GET</h2><p>一般來說, 測試 GET method API 通常不太會有什麼問題，<br>輸入 API 網址, 按下 Send 按鈕就可以確認結果是不是正常,<br>如果有 Url query, 按下 Params 按鈕後, 輸入對應的 key/value,<br>或是直接把整串有包含 Url query API 網址, 輸入到網址列也可以。<br><img src="/images/postman-get.jpg" alt="HTTP GET" title="test"></p>
+<h2 id="HTTP-POST"><a href="#HTTP-POST" class="headerlink" title="HTTP POST"></a>HTTP POST</h2><p>最常發生測試錯誤的, 幾乎都是在 POST method,<br>由於通常會在 GET 測試OK後, 接著進行 POST 新增資料的測試,<br>這時常常會把 API 所需的資料直接填在 Params 的 key/value,<br>卻發現無法新增資料, 如果新增資料是存在資料庫時, 搞不好會以為是語法還是資料庫設定上的問題,<br>但這時如果使用 Debug 模式測試程式, 其實可以發現資料並沒有送到。<br><img src="/images/postman-post-1.jpg" alt="HTTP POST 1"><br>關鍵在於</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Kainors.github.com/2012/09/27/code-test/" data-id="cj0fjwicq000c1ohn8i94etzc" class="article-share-link">Share</a>
+      <a data-url="http://Kainors.github.com/2017/03/19/api-testing-with-postman/" data-id="cj0fjwid3000n1ohnkpgketuh" class="article-share-link">Share</a>
       
-        <a href="http://Kainors.github.com/2012/09/27/code-test/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="http://Kainors.github.com/2017/03/19/api-testing-with-postman/#disqus_thread" class="article-comment-link">留言</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Octopress/">Octopress</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dev-Tools/">Dev Tools</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Postman/">Postman</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-API/">Web API</a></li></ul>
 
     </footer>
   </div>
@@ -137,19 +126,10 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
   
-    <a href="/2012/09/27/code-heightlight/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          在Windows下讓Octopress可以顯示漂亮的程式碼區塊
-        
-      </div>
-    </a>
   
-  
-    <a href="/2012/09/26/octopress-to-dropbox/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/13/docker-note/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">將Octopress source備份至Dropbox</div>
+      <div class="article-nav-title">Docker 學習筆記</div>
     </a>
   
 </nav>
@@ -277,7 +257,7 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'kainors';
   
-  var disqus_url = 'http://Kainors.github.com/2012/09/27/code-test/';
+  var disqus_url = 'http://Kainors.github.com/2017/03/19/api-testing-with-postman/';
   
   (function(){
     var dsq = document.createElement('script');
