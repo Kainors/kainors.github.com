@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>在 Express 中使用 Passport 進行使用者驗證 | 小諾的沒技術農場</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Express 是在 nodejs 下著名的 web framework,由於可透過 middleware 的設計, 掛載各式各樣的 pluging 來完成各項功能,因此可以在很多 framework 中看到
+而 Passport 則是一個 Express middleware, 可以提供 web 權限驗證的功能,除了基本的 username/password 外, 也可以使用 OAuth 進行第">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Express 中使用 Passport 進行使用者驗證">
+<meta property="og:url" content="http://Kainors.github.com/2017/03/24/express-with-passport/index.html">
+<meta property="og:site_name" content="小諾的沒技術農場">
+<meta property="og:description" content="Express 是在 nodejs 下著名的 web framework,由於可透過 middleware 的設計, 掛載各式各樣的 pluging 來完成各項功能,因此可以在很多 framework 中看到
+而 Passport 則是一個 Express middleware, 可以提供 web 權限驗證的功能,除了基本的 username/password 外, 也可以使用 OAuth 進行第">
+<meta property="og:updated_time" content="2017-03-26T16:04:08.828Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在 Express 中使用 Passport 進行使用者驗證">
+<meta name="twitter:description" content="Express 是在 nodejs 下著名的 web framework,由於可透過 middleware 的設計, 掛載各式各樣的 pluging 來完成各項功能,因此可以在很多 framework 中看到
+而 Passport 則是一個 Express middleware, 可以提供 web 權限驗證的功能,除了基本的 username/password 外, 也可以使用 OAuth 進行第">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-34931132-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小諾的沒技術農場</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">歡迎有空來吃草</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://Kainors.github.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-express-with-passport" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/24/express-with-passport/" class="article-date">
+  <time datetime="2017-03-24T03:33:26.000Z" itemprop="datePublished">2017-03-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在 Express 中使用 Passport 進行使用者驗證
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Express 是在 nodejs 下著名的 web framework,<br>由於可透過 middleware 的設計, 掛載各式各樣的 pluging 來完成各項功能,<br>因此可以在很多 framework 中看到</p>
+<p>而 Passport 則是一個 Express middleware, 可以提供 web 權限驗證的功能,<br>除了基本的 username/password 外, 也可以使用 OAuth 進行第三方登入驗證</p>
+<a id="more"></a>
+<p>做完基本介紹, 這邊簡單說明如何使用 Passport 完成基本的使用者驗證功能</p>
+<p>首先當然要先在我們的 Express 專案中安裝 Passport,<br>而 Passport 對於不同的驗證方式, 需要載入相對應的 Strategies,<br>這邊先採用 LocalStrategy 也就是常見的 username/password 驗證,<br>另外要保持使用者的登入狀態, 就需要 session 機制, 所以也需要預先安裝 <code>express-session</code>,</p>
+<p><code>npm i --save passport passport-local express-session</code></p>
+<p>再來就是需要一些使用者的資料囉!<br>基本上應該要存放在 DB 上來管理, 不過這邊我們是要先實作驗證機制,<br>就直接在 <code>app.js</code> 程式中放些使用者的資料!</p>
+<figure class="highlight javascript"><figcaption><span>app.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Users = &#123;</div><div class="line">  <span class="attr">test1</span>:&#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'test1'</span>,</div><div class="line">    <span class="attr">password</span>: <span class="string">'password1'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">test2</span>:&#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'test2'</span>,</div><div class="line">    <span class="attr">password</span>: <span class="string">'password2'</span></div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>接著在程式中引用 <code>passport</code> 及 <code>passport-local</code><br>並且在 Express routing 設定前將 passport middleware 載入</p>
+<figure class="highlight javascript"><figcaption><span>app.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> passport = <span class="built_in">require</span>(<span class="string">'passport'</span>)</div><div class="line">  , LocalStrategy = <span class="built_in">require</span>(<span class="string">'passport-local'</span>).Strategy;</div><div class="line">app.use(<span class="built_in">require</span>(<span class="string">'express-session'</span>)(&#123; </div><div class="line">  <span class="attr">secret</span>: <span class="string">'keyboard cat'</span>, <span class="comment">// &lt;= 這邊為官網範例預設值, 正式環境下請記得修改</span></div><div class="line">  resave: <span class="literal">false</span>,</div><div class="line">  <span class="attr">saveUninitialized</span>: <span class="literal">false</span> </div><div class="line">  &#125;));</div><div class="line">app.use(passport.initialize());</div><div class="line">app.use(passport.session());</div></pre></td></tr></table></figure>
+<p>這邊有幾點要注意的</p>
+<ol>
+<li><code>express-session</code> 必須在 <code>passport.session()</code> 使用前先載入</li>
+<li><code>express-session</code> 的 option 中有個 <code>secre</code> 是必要選項,<br> 主要是將存在使用者端的 session cookie, 計算 hash 後存放,<br> 這邊使用的是官網的範例, 建議正式發布需要進行修改, 以免被竄改</li>
+<li><code>passport.initialize()</code> 務必在 express 設定 routing 前使用,<br>否則登入驗證程式無法正常運作</li>
+</ol>
+<p>接著將加入驗證檢查的程式</p>
+<figure class="highlight javascript"><figcaption><span>app.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">passport.use(<span class="keyword">new</span> LocalStrategy(</div><div class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">username, password, done</span>) </span>&#123;</div><div class="line">    <span class="comment">// 取得使用者的資料</span></div><div class="line">    user = Users[username];</div><div class="line">    <span class="comment">// 如果查無使用者</span></div><div class="line">    <span class="keyword">if</span> (user === <span class="literal">null</span>) &#123;</div><div class="line">      <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, &#123; <span class="attr">message</span>: <span class="string">'Invalid user'</span> &#125;);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 驗證使用者密碼錯誤時</span></div><div class="line">    <span class="keyword">if</span> (user.password !== password) &#123;</div><div class="line">      <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, &#123; <span class="attr">message</span>: <span class="string">'Invalid password'</span> &#125;);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> done(<span class="literal">null</span>, user);</div><div class="line">  &#125;</div><div class="line">));</div><div class="line">passport.serializeUser(<span class="function"><span class="keyword">function</span> (<span class="params">user, done</span>) </span>&#123;</div><div class="line">  done(<span class="literal">null</span>, user.name);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">passport.deserializeUser(<span class="function"><span class="keyword">function</span> (<span class="params">username, done</span>) </span>&#123;</div><div class="line">  done(<span class="literal">null</span>, Users[username]);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><code>LocalStrategy</code> 的 callback function 中, username 及 password 欄位預設對應 login form 的帳號/密碼欄位名稱,<br>如果不想使用預設欄位名稱則可以參考以下用法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">passport.use(<span class="keyword">new</span> LocalStrategy(&#123;</div><div class="line">    <span class="attr">usernameField</span>: <span class="string">'email'</span>,</div><div class="line">    <span class="attr">passwordField</span>: <span class="string">'passwd'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">username, password, done</span>) </span>&#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">  &#125;</div><div class="line">));</div></pre></td></tr></table></figure>
+<p>另外 <code>serializeUser</code> 是將使用者資訊存在 session 中,<br>一般是使用 user ID 以便在資料庫中查詢, 這邊則是用 username<br>而 <code>deserializeUser</code> 則是讓 express 的 <code>req.user</code> 可以取得目前的使用者詳細資料</p>
+<p>由於 Express 預設的 view engine 是 jade, 接著就在 views 資料中加入 <code>login.jade</code></p>
+<figure class="highlight plain"><figcaption><span>login.jade</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">extends layout</div><div class="line"></div><div class="line">block content</div><div class="line">  form(action=&quot;/login&quot;, method=&quot;post&quot;)</div><div class="line">    div</div><div class="line">      label Username:</div><div class="line">      input(type=&quot;text&quot;, name=&quot;username&quot;)</div><div class="line">    div</div><div class="line">      label Password:</div><div class="line">      input(type=&quot;password&quot;, name=&quot;password&quot;)</div><div class="line">    div</div><div class="line">      input(type=&quot;submit&quot;, value=&quot;Log In&quot;)</div></pre></td></tr></table></figure>
+<p>接著繼續在 app.js 中加入登入頁面的 routing 設定, 當然也別忘了登出功能</p>
+<figure class="highlight javascript"><figcaption><span>app.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  res.render(<span class="string">'login'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.post(<span class="string">'/login'</span>,</div><div class="line">  passport.authenticate(<span class="string">'local'</span>, &#123;</div><div class="line">    <span class="attr">successRedirect</span>: <span class="string">'/'</span>,</div><div class="line">    <span class="attr">failureRedirect</span>: <span class="string">'/login'</span></div><div class="line">  &#125;)</div><div class="line">);</div><div class="line"></div><div class="line">app.get(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">  req.logout();</div><div class="line">  res.redirect(<span class="string">'/'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>到這邊基本的使用者驗證功能就完成了,<br>而我們要如何在頁面中取得使用者的資訊呢?<br>還記得前面所說的, 可以從 <code>req.user</code> 可以取得目前的使用者詳細資料,<br>例如我們要在 index 頁面中顯示使用者資訊, 就可以如下面的程式傳遞到 view 頁面中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  res.render(<span class="string">'index'</span>, &#123; <span class="attr">title</span>: <span class="string">'Express'</span>, <span class="attr">user</span>: req.user &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>但是想要在每個頁面都知道登入狀態及使用者資訊, 這麼做就很麻煩,<br>這時候就可以使用 express middleware 的方式, 讓每個頁面載入前呼叫這段程式</p>
+<figure class="highlight javascript"><figcaption><span>app.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.use(<span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  res.locals.user = req.user;</div><div class="line">  res.locals.isAuthenticated = req.isAuthenticated();</div><div class="line">  next();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>這樣每個 view 頁面就可以加入下面的程式,<br>或是放到 partial 的頁面, 這樣整個功能就完成了!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if(isAuthenticated)</div><div class="line">  p Hello #&#123;user.name&#125;!</div><div class="line">  a(href=&quot;/logout&quot;) 登出</div><div class="line">else</div><div class="line">  a(href=&quot;/login&quot;) 登入</div></pre></td></tr></table></figure>
+<p>至於後續的修改有時間再繼續寫吧!</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://expressjs.com/en/4x/api.html" target="_blank" rel="external">Express API reference</a><br><a href="http://passportjs.org/docs/" target="_blank" rel="external">Passport Document</a></p>
+<p><a href="https://github.com/Kainors/Express-with-Passport-sample" target="_blank" rel="external">範例程式</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://Kainors.github.com/2017/03/24/express-with-passport/" data-id="cj0qvnswj000sm8hn4zzv0ibh" class="article-share-link">Share</a>
+      
+        <a href="http://Kainors.github.com/2017/03/24/express-with-passport/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Express/">Express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Passport/">Passport</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/19/api-testing-with-postman/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用 Postman 進行 API 測試</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Learn/">Learn</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Learn/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Learn/Octopress/">Octopress</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/雜記/">雜記</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Dev-Tools/" style="font-size: 10px;">Dev Tools</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 15px;">GitHub</a> <a href="/tags/Map/" style="font-size: 10px;">Map</a> <a href="/tags/Octopress/" style="font-size: 20px;">Octopress</a> <a href="/tags/OpenLayers/" style="font-size: 10px;">OpenLayers</a> <a href="/tags/Passport/" style="font-size: 10px;">Passport</a> <a href="/tags/Postman/" style="font-size: 10px;">Postman</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/Web-API/" style="font-size: 10px;">Web API</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/雜草叢生/" style="font-size: 15px;">雜草叢生</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/24/express-with-passport/">在 Express 中使用 Passport 進行使用者驗證</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/19/api-testing-with-postman/">使用 Postman 進行 API 測試</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/13/docker-note/">Docker 學習筆記</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/06/octopress-to-hexo/">轉換~~~</a>
+          </li>
+        
+          <li>
+            <a href="/2012/11/12/ajax-cross-domain/">使用XMLHttpRequest執行AJAX跨網域存取</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近回覆</h3>
+    <div class="widget">
+      <script type="text/javascript" src="http://kainors.disqus.com/recent_comments_widget.js?num_items=10&hide_avatars=1&avatar_size=32&excerpt_length=100&hide_mods=0"></script>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">壞朋友們</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="//ichi1234567.github.com/" target="_blank">小助助的精神實驗室</a>
+          </li>
+        
+          <li>
+            <a href="//yy-programer.blogspot.tw/" target="_blank">Yy&#39;s Program</a>
+          </li>
+        
+          <li>
+            <a href="//yy-blogger.blogspot.tw/" target="_blank">Yy&#39;s BLOG</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      &copy; 2017 Kainors
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    <div id="totop">
+  <a title="totop"><img src="/css/images/scrollup.png"/></a>
+</div>
+
+<script>
+  var disqus_shortname = 'kainors';
+  
+  var disqus_url = 'http://Kainors.github.com/2017/03/24/express-with-passport/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
